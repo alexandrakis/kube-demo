@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: kube-demo-pod
+spec:
+  containers:
+    - name: kube-demo
+      image: dockerregistry.com/kube-demo:v1
+  containers:
+    - name: kube-demo-gateway
+      image: dockerregistry.com/kube-demo-gateway:v1
+  imagePullSecrets:
+    - name: localregistry

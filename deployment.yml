@@ -1,0 +1,86 @@
+---
+kind: Pod
+apiVersion: v1
+metadata:
+  name: kube-demo-121850109-lx56z
+  generateName: kube-demo-121850109-
+  namespace: default
+  selfLink: "/api/v1/namespaces/default/pods/kube-demo-121850109-lx56z"
+  uid: 977d551e-4f7f-11e7-89f8-08002751f4c0
+  resourceVersion: '32766'
+  creationTimestamp: '2017-06-12T14:58:27Z'
+  labels:
+    app: kube-demo
+    pod-template-hash: '121850109'
+    version: v1
+  annotations:
+    kubernetes.io/created-by: '{"kind":"SerializedReference","apiVersion":"v1","reference":{"kind":"ReplicaSet","namespace":"default","name":"kube-demo-121850109","uid":"976b4578-4f7f-11e7-89f8-08002751f4c0","apiVersion":"extensions","resourceVersion":"32746"}}
+
+'
+  ownerReferences:
+  - apiVersion: extensions/v1beta1
+    kind: ReplicaSet
+    name: kube-demo-121850109
+    uid: 976b4578-4f7f-11e7-89f8-08002751f4c0
+    controller: true
+    blockOwnerDeletion: true
+spec:
+  volumes:
+  - name: default-token-lvhd0
+    secret:
+      secretName: default-token-lvhd0
+      defaultMode: 420
+  containers:
+  - name: kube-demo
+    image: dockerregistry.com/kube-demo:v1
+    resources: {}
+    volumeMounts:
+    - name: default-token-lvhd0
+      readOnly: true
+      mountPath: "/var/run/secrets/kubernetes.io/serviceaccount"
+    terminationMessagePath: "/dev/termination-log"
+    terminationMessagePolicy: File
+    imagePullPolicy: IfNotPresent
+    securityContext:
+      privileged: false
+  restartPolicy: Always
+  terminationGracePeriodSeconds: 30
+  dnsPolicy: ClusterFirst
+  serviceAccountName: default
+  serviceAccount: default
+  nodeName: minikube
+  securityContext: {}
+  imagePullSecrets:
+  - name: localregistry
+  schedulerName: default-scheduler
+status:
+  phase: Running
+  conditions:
+  - type: Initialized
+    status: 'True'
+    lastProbeTime:
+    lastTransitionTime: '2017-06-12T14:58:28Z'
+  - type: Ready
+    status: 'True'
+    lastProbeTime:
+    lastTransitionTime: '2017-06-12T14:58:28Z'
+  - type: PodScheduled
+    status: 'True'
+    lastProbeTime:
+    lastTransitionTime: '2017-06-12T14:58:28Z'
+  hostIP: 192.168.99.100
+  podIP: 172.17.0.4
+  startTime: '2017-06-12T14:58:28Z'
+  containerStatuses:
+  - name: kube-demo
+    state:
+      running:
+        startedAt: '2017-06-12T14:58:28Z'
+    lastState: {}
+    ready: true
+    restartCount: 0
+    image: dockerregistry.com/kube-demo:v1
+    imageID: docker://sha256:d5380c72d77a8b7293df5d1ba6af092e53a3b9d5b2addf35a7177e6485b60e09
+    containerID: docker://9d7f6f0d927bcb42c5f92d18afc87e7bf530e89b6b4db0198769b35f812ce706
+  qosClass: BestEffort
+
