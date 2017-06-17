@@ -12,6 +12,33 @@ spec:
       labels:
         app: {{ .Values.fullName }}
 #        app: {{ template "fullname" . }}
+    spec:
+      containers:
+      - name: {{ .Chart.Name }}
+        image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+        imagePullPolicy: {{ .Values.image.pullPolicy }}
+        ports:
+        - containerPort: {{ .Values.service.internalPort }}
+        livenessProbe:
+#          exec:
+#            command:
+#            - cat
+#            - /tmp/healthy
+          httpGet:
+            path: /
+            port: {{ .Values.service.internalPort }}
+        readinessProbe:
+#          exec:
+#            command:
+#            - cat
+#            - /tmp/healthy
+          httpGet:
+            path: /
+            port: {{ .Values.service.internalPort }}
+        resources:
+{{ toYaml .Values.resources | indent 10 }}
+      imagePullSecrets:
+      - name: {{ .Values.imageSecretName }}
   strategy:
     type: RollingUpdate
     rollingUpdate:
