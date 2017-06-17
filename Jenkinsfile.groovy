@@ -13,7 +13,7 @@ node {
     docker.withRegistry(env.REGISTRY_HOST, 'docker_registry_credentials_id') {
         stage 'Build Docker Image'
         echo 'Building docker image....'
-        String imageName = "kube-demo-gateway:${env.BUILD_NUMBER}"
+        String imageName = "kube-demo:${env.BUILD_NUMBER}"
         sh "docker build -t ${imageName}  ."
         def img = docker.image(imageName)
         stage 'Push Docker Image'
