@@ -4,6 +4,7 @@
 replicaCount: 1
 imageSecretName: dockregkey
 fullName: kube-demo
+nodeName: minikube
 image:
   repository: dockreg.datamation.gr/kube-demo
   tag: latest
