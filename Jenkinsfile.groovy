@@ -25,3 +25,4 @@ node {
         sh 'pwd'
         sh 'helm upgrade --install kube-demo ./helm --set hostname=kube-demo'
 }
+
