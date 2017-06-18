@@ -9,7 +9,7 @@ spec:
   type: {{ .Values.service.type }}
   ports:
   - name: kube-demo-gateway
-  - ports: {{ .Values.service.internalPort }}
+  - port: {{ .Values.service.internalPort }}
     targetPort: {{ .Values.service.internalPort }}
     protocol: TCP
     name: {{ .Values.service.name }}
