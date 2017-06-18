@@ -12,7 +12,7 @@ public class TestController {
     @RequestMapping("/test")
     public Response testController(){
         System.out.println("Calling test controller");
-        return new Response("This is a message", "This is another message");
+        return new Response("This is an awesome message", "This is another message");
     }
 }
 
