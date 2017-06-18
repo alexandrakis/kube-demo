@@ -11,7 +11,8 @@ image:
   pullPolicy: Always
 service:
   name: kube-demo
-  type: ClusterIp
+  type: ClusterIP
+  externalPort: 80
   internalPort: 8080
 ingress:
   enabled: false
