@@ -20,18 +20,10 @@ spec:
         ports:
         - containerPort: {{ .Values.service.internalPort }}
         livenessProbe:
-#          exec:
-#            command:
-#            - cat
-#            - /tmp/healthy
           httpGet:
             path: /
             port: {{ .Values.service.internalPort }}
         readinessProbe:
-#          exec:
-#            command:
-#            - cat
-#            - /tmp/healthy
           httpGet:
             path: /
             port: {{ .Values.service.internalPort }}
