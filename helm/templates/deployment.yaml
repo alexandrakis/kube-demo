@@ -7,7 +7,6 @@ metadata:
     chart: "{{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}"
 spec:
   replicas: {{ .Values.replicaCount }}
-  hostname: kube-demo
   template:
     metadata:
       labels:
