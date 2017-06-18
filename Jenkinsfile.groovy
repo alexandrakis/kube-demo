@@ -23,5 +23,5 @@ node {
     stage 'Deploy to Kubernetes'
         echo 'Deploying....'
         sh 'pwd'
-        sh 'helm upgrade --install kube-demo ./helm'
+        sh 'helm upgrade --install kube-demo ./helm --set hostname=kube-demo'
 }
